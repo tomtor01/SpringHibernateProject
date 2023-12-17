@@ -3,6 +3,7 @@ package com.example.SpringHibernateProject.service;
 import com.example.SpringHibernateProject.persistence.Pracownicy;
 import com.example.SpringHibernateProject.repositories.PracownicyRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 import java.util.Optional;

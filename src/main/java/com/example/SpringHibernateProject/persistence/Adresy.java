@@ -1,9 +1,6 @@
 package com.example.SpringHibernateProject.persistence;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
 
@@ -14,13 +11,20 @@ import java.util.Objects;
 @Setter
 @ToString
 @RequiredArgsConstructor
-public class Pracownicy {
-
+@Table(name = "Adresy")
+public class Adresy {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long klientID;
 
-    private String Imie;
+    private String ulica;
+    private String miasto;
+    private String kodPocztowy;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @MapsId
+    @JoinColumn(name = "klientID")
+    @ToString.Exclude
+    private Klienci klient;
 
     @Override
     public final boolean equals(Object o) {
@@ -29,8 +33,8 @@ public class Pracownicy {
         Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
         Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
         if (thisEffectiveClass != oEffectiveClass) return false;
-        Pracownicy that = (Pracownicy) o;
-        return getId() != null && Objects.equals(getId(), that.getId());
+        Adresy adresy = (Adresy) o;
+        return getKlientID() != null && Objects.equals(getKlientID(), adresy.getKlientID());
     }
 
     @Override
