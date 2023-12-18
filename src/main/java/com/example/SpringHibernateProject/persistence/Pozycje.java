@@ -16,15 +16,21 @@ import java.util.Objects;
 public class Pozycje {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "zamowienieID", nullable = false)
+    @JoinColumn(name = "ZamowienieID", nullable = false)
     private Zamowienia zamowienie;
 
+    @Column(name = "Produkt")
     private String produkt;
+
+    @Column(name = "Ilosc")
     private int ilosc;
-    private BigDecimal cenaJednostkowa;
+
+    @Column(name = "Cena")
+    private BigDecimal cena;
 
     @Override
     public final boolean equals(Object o) {

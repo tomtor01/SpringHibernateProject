@@ -14,10 +14,13 @@ import java.util.Objects;
 @Table(name = "Adresy")
 public class Adresy {
     @Id
+    @Column(name = "KlientID")
     private Long klientID;
-
+    @Column(name = "Ulica")
     private String ulica;
+    @Column(name = "Miasto")
     private String miasto;
+    @Column(name = "KodPocztowy")
     private String kodPocztowy;
 
     @OneToOne(fetch = FetchType.LAZY)

@@ -14,10 +14,6 @@ public class AdresyService {
         this.adresyRepository = adresRepository;
     }
 
-    public Adresy getAdresByKlientId(Long klientId) {
-        return adresyRepository.findById(klientId).orElse(null);
-    }
-
     public Adresy saveAdres(Adresy adres) {
         return adresyRepository.save(adres);
     }

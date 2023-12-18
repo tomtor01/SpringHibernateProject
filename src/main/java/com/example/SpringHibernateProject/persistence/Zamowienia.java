@@ -5,7 +5,9 @@ import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.time.ZonedDateTime;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -20,18 +22,16 @@ public class Zamowienia {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "klientID", nullable = false)
+    @JoinColumn(name = "KlientID", nullable = false)
     private Klienci klient;
 
-    @OneToMany(mappedBy = "zamowienie", cascade = CascadeType.ALL, orphanRemoval = true)
-    @ToString.Exclude
-    private List<Pozycje> pozycje = new ArrayList<>();
+    @Column(name = "DataZamowienia")
+    private ZonedDateTime dataZamowienia;
 
-    private Date dataZamowienia;
-    private BigDecimal kwota;
 
     @Override
     public final boolean equals(Object o) {

@@ -15,11 +15,6 @@ public class AdresyController {
         this.adresyService = adresyService;
     }
 
-    @GetMapping("/klient/{klientId}")
-    public Adresy getAdresByKlientId(@PathVariable Long klientId) {
-        return adresyService.getAdresByKlientId(klientId);
-    }
-
     @PostMapping
     public Adresy saveAdres(@RequestBody Adresy adres) {
         return adresyService.saveAdres(adres);

@@ -15,10 +15,14 @@ import java.util.Objects;
 public class Klienci {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private Long id;
 
+    @Column(name = "Imie")
     private String imie;
+    @Column(name = "Nazwisko")
     private String nazwisko;
+    @Column(name = "Email")
     private String email;
 
     @Override
