@@ -72,7 +72,7 @@ public class KlienciController {
         return new ResponseEntity<>(totalSpent, HttpStatus.OK);
     }
 
-    @GetMapping("/all-page")
+    @GetMapping("/pageable")
     public ResponseEntity<Page<Klienci>> getAllPage(Pageable pageable) {
         Page<Klienci> result = service.getAllPage(pageable);
         return ResponseEntity.ok(result);
